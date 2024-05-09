@@ -26,7 +26,7 @@ public class ControllerGame implements Initializable {
     @FXML
     private Label comment;
 
-    String letter = "O";
+    // String letter = "O";
     int counter;
 
     @FXML
@@ -77,11 +77,13 @@ public class ControllerGame implements Initializable {
 
     @FXML
     public void reset() {
+        // Rimuovi tutti i nodi dalla GridPane
+        gp.getChildren().clear();
+        createGridPane();
     }
 
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        view();
+    // @FXML
+    public void createGridPane() {
         comment.setText("Posiziona un simbolo nel campo");
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
@@ -96,6 +98,11 @@ public class ControllerGame implements Initializable {
                 gp.add(b, x, y);
             }
         }
+    }
 
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        view();
+        createGridPane();
     }
 }
