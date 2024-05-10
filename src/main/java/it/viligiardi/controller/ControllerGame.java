@@ -14,6 +14,8 @@ import javafx.scene.layout.GridPane;
 
 public class ControllerGame implements Initializable {
     @FXML
+    private GridPane gpScore;
+    @FXML
     private GridPane gp;
     @FXML
     private Label nameP1;
@@ -31,6 +33,7 @@ public class ControllerGame implements Initializable {
 
     @FXML
     private void switchToPrimary() throws IOException {
+        resetAll();
         App.setRoot("menu");
     }
 
@@ -49,8 +52,9 @@ public class ControllerGame implements Initializable {
         Integer y = GridPane.getColumnIndex(b);
         Integer x = GridPane.getRowIndex(b);
 
-        if (Game.placeSymbol(x, y, Game.p2)) {
+        if (Game.placeSymbol(x, y, p)) {
             b.setText(p.getSymbol());
+            // Game.viewMatrix(); per il controllo
             // b.setText(letter);
             // letter = letter.equals("O") ? "X" : "O";
             if (Game.isVictory(p)) {
@@ -58,6 +62,9 @@ public class ControllerGame implements Initializable {
                 p.setScore(p.getScore() + 1);
                 view();
                 comment.setText("HAI VINTO " + p.getName() + "!");
+            } else if (Game.isDraw()) {
+                gp.setDisable(true);
+                comment.setText("PAREGGIO!");
             }
         } else {
             comment.setText("Scegli un'altra posizione nel campo");
@@ -76,10 +83,20 @@ public class ControllerGame implements Initializable {
     }
 
     @FXML
-    public void reset() {
+    public void resetGridPane() {
         // Rimuovi tutti i nodi dalla GridPane
+        Game.resetField();
+        gp.setDisable(false);
         gp.getChildren().clear();
         createGridPane();
+    }
+
+    // @FXML
+    public void resetAll() {
+        resetGridPane();
+        gpScore.getChildren().clear();
+        Game.p1.setScore(0);
+        Game.p2.setScore(0);
     }
 
     // @FXML

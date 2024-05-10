@@ -59,4 +59,33 @@ public class Game {
             return false;
         }
     }
+
+    public static boolean isDraw() {
+        for (int x = 0; x < Game.f.getDim(); x++) {
+            for (int y = 0; y < Game.f.getDim(); y++) {
+                if (Game.f.getMatrix()[x][y] == null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void resetField() {
+        for (int x = 0; x < Game.f.getDim(); x++) {
+            for (int y = 0; y < Game.f.getDim(); y++) {
+                Game.f.getMatrix()[x][y] = null;
+            }
+        }
+    }
+
+    public static void viewMatrix() {
+        for (int x = 0; x < Game.f.getDim(); x++) {
+            System.out.println(" ");
+            for (int y = 0; y < Game.f.getDim(); y++) {
+                System.out.print(Game.f.getMatrix()[x][y] + " ");
+
+            }
+        }
+    }
 }
