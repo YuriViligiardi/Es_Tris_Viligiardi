@@ -45,7 +45,6 @@ public class ControllerGame implements Initializable {
         scoreP1.setText(s);
         String s1 = Game.p2.getScore().toString();
         scoreP2.setText(s1);
-        counter = 1;
     }
 
     public void isVictory(Player p, Button b) {
@@ -54,7 +53,7 @@ public class ControllerGame implements Initializable {
 
         if (Game.placeSymbol(x, y, p)) {
             b.setText(p.getSymbol());
-            // Game.viewMatrix(); per il controllo
+            Game.viewMatrix(); //per il controllo
             // b.setText(letter);
             // letter = letter.equals("O") ? "X" : "O";
             if (Game.isVictory(p)) {
@@ -89,6 +88,7 @@ public class ControllerGame implements Initializable {
         gp.setDisable(false);
         gp.getChildren().clear();
         createGridPane();
+        counter = 1;
     }
 
     // @FXML
@@ -119,6 +119,7 @@ public class ControllerGame implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        counter = 1;
         view();
         createGridPane();
     }
