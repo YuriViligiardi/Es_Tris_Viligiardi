@@ -53,7 +53,7 @@ public class ControllerGame implements Initializable {
 
         if (Game.placeSymbol(x, y, p)) {
             b.setText(p.getSymbol());
-            Game.viewMatrix(); //per il controllo
+            Game.viewMatrix(); // per il controllo
             // b.setText(letter);
             // letter = letter.equals("O") ? "X" : "O";
             if (Game.isVictory(p)) {

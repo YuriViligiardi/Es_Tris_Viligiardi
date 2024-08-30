@@ -5,14 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" spacing="20.0" style="-fx-background-radius: 20; -fx-pref-width: 500; -fx-pref-height: 350;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.viligiardi.controller.ControllerMenu">
+<VBox alignment="CENTER" spacing="20.0" style="-fx-background-radius: 20; -fx-pref-width: 500; -fx-pref-height: 350;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.viligiardi.controller.ControllerMenu">
    <children>
-      <Label text="BENVENUTO SU TRIS!" textFill="#d30101">
+      <Label text="BENVENUTO SU TRIS!">
          <font>
-            <Font size="36.0" />
-         </font></Label>
+            <Font name="System Bold" size="38.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.20454536423538672" endY="1.0" startX="1.0" startY="0.3446969480225534">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.16376066207885742" green="0.008200000040233135" blue="0.8199999928474426" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.0037426899652928114" green="0.25450292229652405" blue="0.5052631497383118" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill></Label>
       <TextField fx:id="nickName1" prefHeight="44.0" prefWidth="347.0" promptText="Inserire un nickname" style="-fx-background-radius: 10;">
          <font>
             <Font size="18.0" />
@@ -24,6 +43,30 @@
          </font>
       </TextField>
       <Button fx:id="primaryButton" onAction="#switchToSecondary" prefHeight="37.0" prefWidth="65.0" style="-fx-background-radius: 15; -fx-background-color: green;" text="GIOCA" textFill="WHITE" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="64.0" text="BY YURI VILIGIARDI">
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="0.20454536423538672" endY="1.0" startX="1.0" startY="0.3446969480225534">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.16376066207885742" green="0.008200000040233135" blue="0.8199999928474426" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.0037426899652928114" green="0.25450292229652405" blue="0.5052631497383118" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Label>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
